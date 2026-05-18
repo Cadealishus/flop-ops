@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cade Ops First Try Build</title>
+  <link rel="stylesheet" href="game.css">
+  <script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
+  </script>
+</head>
+<body>
+<div id="loadingScreen"><div id="loadingBox"> 
+
+    <div id="loadingTitle">Loading Flop Ops...</div> 
+
+    <div id="loadingSubtitle">Quick Play is loading the real match build</div> 
+
+    <div id="progressOuter"><div id="progressInner"></div></div> 
+
+    <div id="loadingPercent">0%</div><div id="loadingFile">starting...</div> 
+
+  </div></div> 
+
+ 
+
+  <div id="hud"> 
+
+    <div><b>Cade Ops V34 Doug MP + Synced Bomb</b></div> 
+
+    <div>WASD = FPS move / drive APC</div> 
+
+    <div>Click game = mouse lock 
+
+Mouse = look around 
+
+ESC = unlock mouse</div> 
+
+    <div>Space = jump</div> 
+
+    <div>Shift = sprint / APC boost</div> 
+
+    <div>E = enter/exit APC</div> 
+
+    <div>Left click = shoot<br>Rocket blockade = 100 shots<br>Rocket destroyed = GAME OVER cutscene<br>M = Macarena, 1 = Saiga viewmodel</div> 
+
+    <div>Mode: <span id="mode">walking</span></div> 
+
+    <div>Weapon: <span id="weapon">SCAR</span></div> 
+
+    <div>Status: <span id="status">loading...</span></div> 
+
+  </div> 
+
+ 
+
+ 
+
+  <div id="mpPanel"> 
+
+    <h3>PeerJS Multiplayer</h3> 
+
+    <div><b>Room code</b></div> 
+
+    <input id="mpRoomInput" value="cade-room" placeholder="room code"> 
+
+    <div><button id="mpHostBtn" type="button">HOST</button><button id="mpJoinBtn" type="button">JOIN</button></div> 
+
+    <div><button id="mpLeaveBtn" type="button">LEAVE</button><button id="mpHideBtn" type="button">HIDE</button></div> 
+
+    <div id="mpStatus">offline</div> 
+
+  </div> 
+
+ 
+
+  <div id="whiteFlash" style="position:fixed;inset:0;background:white;pointer-events:none;opacity:0;z-index:4500;"></div> 
+
+ 
+
+  <div id="cutsceneOverlay" style="display:none;position:fixed;inset:0;z-index:5000;background:#000;align-items:center;justify-content:center;overflow:hidden;color:white;font-family:Arial,sans-serif;"> 
+
+    <img id="cutsceneGif" src="https://media1.tenor.com/m/uPxIYs1Dji0AAAAd/nuketown-cold-war.gif" alt="Game over cutscene" style="width:100vw;height:100vh;object-fit:cover;"> 
+
+    <div id="cutsceneText" style="position:absolute;left:50%;bottom:9vh;transform:translateX(-50%);text-align:center;background:rgba(0,0,0,0.72);border:1px solid rgba(255,255,255,0.22);padding:18px 26px;border-radius:16px;box-shadow:0 16px 45px rgba(0,0,0,0.5);min-width:min(720px,88vw);"> 
+
+      <div id="cutsceneTitle" style="font-size:clamp(34px,7vw,86px);font-weight:900;letter-spacing:0.08em;color:#ffdd55;text-shadow:0 4px 0 #000,0 0 22px rgba(255,140,0,0.95);margin-bottom:8px;">GAME OVER</div> 
+
+      <div id="cutsceneSubtitle" style="font-size:clamp(16px,2.5vw,28px);font-weight:700;color:#fff;text-shadow:0 2px 8px #000;">Rocket blockade detonated. Nuketown has left the chat 💀</div> 
+
+      <div id="cutsceneHint" style="margin-top:10px;font-size:14px;opacity:0.8;">Press R to restart the mission.</div> 
+
+    </div> 
+
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js"></script>
+<script type="module" src="game.js"></script>
+</body>
+</html>

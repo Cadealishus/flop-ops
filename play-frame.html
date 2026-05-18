@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flop Ops Game Frame</title>
+  <style>
+    html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#050505;font-family:Arial,sans-serif;color:white}
+    #bar{position:fixed;left:12px;top:12px;z-index:5;display:flex;gap:8px;align-items:center;background:rgba(0,0,0,.65);border:1px solid rgba(255,255,255,.2);padding:8px 10px;border-radius:10px}
+    button{height:32px;border:1px solid rgba(255,255,255,.25);background:#111;color:white;font-weight:800;border-radius:8px;cursor:pointer}
+    button:hover{border-color:#ff3333;color:#ff3333}
+    iframe{position:fixed;inset:0;width:100%;height:100%;border:0;background:#000}
+  </style>
+</head>
+<body>
+  <iframe id="game" src="game/game.html" title="Flop Ops Game"></iframe>
+  <div id="bar">
+    <b>FLOP OPS FRAME</b>
+    <button onclick="game.contentWindow.location.reload()">RELOAD GAME</button>
+    <button onclick="document.documentElement.requestFullscreen?.()">FULLSCREEN</button>
+    <button onclick="game.src='game/game.html?mp=host&room=cade-room'">HOST TEST</button>
+    <button onclick="game.src='game/game.html?mp=join&room=cade-room'">JOIN TEST</button>
+  </div>
+</body>
+</html>

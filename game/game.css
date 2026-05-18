@@ -1,0 +1,59 @@
+html, body { margin:0; overflow:hidden; background:#111; font-family:Arial,sans-serif; } 
+
+    #hud { position:fixed; top:12px; left:12px; color:white; background:rgba(0,0,0,.68); padding:12px 14px; border-radius:12px; font-size:14px; line-height:1.45; z-index:10; user-select:none; max-width:460px; } 
+
+    #status,#mode,#weapon { color:#ffd76a; font-weight:bold; } 
+
+    #loadingScreen { position:fixed; inset:0; background:radial-gradient(circle at center,#1b2d3a 0%,#05080c 75%); display:flex; align-items:center; justify-content:center; z-index:999; color:white; transition:opacity .35s ease; } 
+
+    #loadingBox { width:min(500px,88vw); background:rgba(0,0,0,.58); border:1px solid rgba(255,255,255,.22); border-radius:18px; padding:22px; box-shadow:0 18px 50px rgba(0,0,0,.55); text-align:center; } 
+
+    #loadingTitle { font-size:24px; font-weight:bold; margin-bottom:6px; } 
+
+    #loadingSubtitle { font-size:14px; opacity:.85; margin-bottom:16px; } 
+
+    #progressOuter { height:18px; background:rgba(255,255,255,.15); border-radius:999px; overflow:hidden; border:1px solid rgba(255,255,255,.25); } 
+
+    #progressInner { width:0%; height:100%; background:linear-gradient(90deg,#77dd77,#ffd76a); border-radius:999px; transition:width .12s ease; } 
+
+    #loadingPercent { margin-top:10px; font-size:14px; color:#ffd76a; font-weight:bold; } 
+
+    #loadingFile { margin-top:7px; font-size:12px; opacity:.78; min-height:16px; } 
+
+    #loadingScreen.hidden { opacity:0; pointer-events:none; } 
+
+ 
+
+    #mpPanel{position:fixed;right:12px;top:12px;width:310px;z-index:120;color:white;background:rgba(0,0,0,.72);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:11px 12px;font-family:Arial,sans-serif;font-size:12px;line-height:1.35;box-shadow:0 18px 45px rgba(0,0,0,.45);user-select:text} 
+
+    #mpPanel h3{margin:0 0 8px 0;font-size:16px;color:#ffd76a} 
+
+    #mpPanel input{width:100%;box-sizing:border-box;height:34px;margin:5px 0 7px 0;padding:0 9px;border-radius:9px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:white;outline:none;font-weight:800} 
+
+    #mpPanel button{width:48%;height:32px;margin:3px 1%;border:0;border-radius:9px;background:#ffd76a;color:#111;font-weight:900;cursor:pointer} 
+
+    #mpStatus{margin-top:8px;padding:8px;border-radius:9px;background:rgba(255,255,255,.08);font-family:monospace;white-space:pre-wrap;min-height:48px;color:#e9f7ff} 
+
+ 
+
+
+
+    /* FLOP OPS MENU-MATCHED GAME LOADING SCREEN */
+    #loadingScreen{
+      position:fixed;inset:0;
+      background:#000 url("https://cdn.jsdelivr.net/gh/Cadealishus/cadesphotos@main/doug%20loadingscreen.png") center/cover no-repeat!important;
+      display:flex;align-items:flex-end;justify-content:center;
+      padding-bottom:9vh;z-index:999;color:white;transition:opacity .35s ease;
+      font-family:Impact,"Arial Black",Arial,sans-serif;overflow:hidden;
+    }
+    #loadingScreen::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(circle at 50% 45%,transparent 42%,rgba(0,0,0,.52) 78%,#000 100%),linear-gradient(90deg,rgba(0,0,0,.62),transparent 25%,transparent 70%,rgba(0,0,0,.72));}
+    #loadingScreen::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.07;background:repeating-linear-gradient(0deg,rgba(255,255,255,.018) 0 1px,transparent 1px 5px);}
+    #loadingBox{position:relative;z-index:2;width:min(800px,92vw);background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;box-shadow:none!important;text-align:center;}
+    #loadingTitle{font-size:clamp(30px,4vw,58px)!important;font-weight:900!important;letter-spacing:2px;text-shadow:0 8px 22px #000;margin:0 0 8px 0!important;}
+    #loadingSubtitle{font-family:Arial,sans-serif;font-size:13px!important;font-weight:900!important;opacity:.85;margin:0 0 14px 0!important;letter-spacing:1px;text-shadow:0 4px 12px #000;}
+    #progressOuter{display:none!important;}
+    #loadingPercent{margin-top:0!important;font-size:clamp(30px,4vw,58px)!important;color:#fff!important;font-weight:900!important;letter-spacing:2px;text-shadow:0 8px 22px #000;}
+    #loadingPercent::before{content:"> ";color:red;}
+    #loadingPercent::after{content:" <";color:red;}
+    #loadingFile{font-family:Arial,sans-serif;margin-top:7px!important;font-size:12px!important;font-weight:900!important;opacity:.78;min-height:16px;text-shadow:0 4px 12px #000;}
+    #mpPanel{display:none!important;}

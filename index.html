@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flop Ops Combined - Doug Multiplayer Lobby</title>
+  <script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}
+  </script>
+  <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+<section id="signinMicroslop" class="screen">
+  <div class="ms-bg-grid"></div>
+  <div>
+    <div class="microslop-card">
+      <div class="microslop-brand"><div class="microslop-logo"><span></span><span></span><span></span><span></span></div><span>Microslop 369</span></div>
+      <h1>Sign in</h1>
+      <p>Choose the name that shows in the Flop Ops multiplayer lobby. This is saved on this browser.</p>
+      <input id="microslopNameInput" maxlength="18" autocomplete="off" placeholder="Doug">
+      <div class="microslop-row">
+        <button id="microslopGuestBtn" type="button">Use Doug</button>
+        <button id="microslopSignInBtn" type="button">Sign in</button>
+      </div>
+    </div>
+    <div class="microslop-footer">Microslop 369 account services • definitely real • lobby identity only</div>
+  </div>
+</section>
+<section id="boot" class="screen hidden"><img class="bg-img" id="bootImg" alt=""><div class="bootShade"></div><div class="scan"></div><div class="top-label">SIGNED IN AS: <b>DOUG</b></div><div class="bootPress">PRESS ✕ TO START</div></section>
+<section id="loading" class="screen hidden"><img class="bg-img" id="loadingImg" alt=""><div class="vignette"></div><div class="scan"></div><div class="loading-ui"><div class="loading-text"><span>></span> <b id="loadText">0%</b> <span><</span></div></div></section>
+<section id="menu" class="screen hidden"><img class="bg-img" id="backgroundImg" alt=""><div class="vignette"></div><div class="scan"></div><div id="menuTop"><div class="top-label">SIGNED IN AS: <b>DOUG</b></div><div class="top-tabs"><button class="tab active" data-page="play">PLAY</button><button class="tab" data-page="multi">MULTIPLAYER</button><button class="tab" data-page="loadout">LOADOUT</button><button class="tab" data-page="operators">OPERATORS</button><button class="tab" data-page="settings">SETTINGS</button></div><img class="top-icons-img" id="tabsImg" alt=""><div class="profile">PLAYER: <b>DOUG</b> <span class="rank">55</span></div></div><div class="menu-logo"><div class="flop">FLOP OPS</div><div class="war">DEPLOYMENT</div><div class="red-bars"><span></span><span></span><span></span></div></div><img class="doug" id="dougImg" alt="Doug"><div class="buttons"><button class="btn active" data-page="play"><img class="btn-img" id="playImg" alt=""></button><button class="btn" data-page="multi"><img class="btn-img" id="multiImg" alt=""></button><button class="btn" data-page="loadout"><img class="btn-img" id="loadoutImg" alt=""></button><button class="btn" data-page="operators"><img class="btn-img" id="operatorsImg" alt=""></button><button class="btn" data-page="settings"><img class="btn-img" id="settingsImg" alt=""></button><button class="btn" data-page="quit"><img class="btn-img" id="quitImg" alt=""></button></div><div class="right"><button class="operator-mini" id="operatorMini" data-page="operators"><div class="op-text"><div class="op-kicker">CURRENT OPERATOR</div><h3>DOUG</h3><div class="op-row">STATUS: <b>EQUIPPED</b></div><div class="op-row">LEVEL: <b>55</b></div><div class="op-tag">OPEN OPERATORS</div></div><img id="operatorMiniImg" alt=""></button><div class="panel"><h3>DAILY CHALLENGES</h3><div class="challenge">Get 20 Kills with Assault Rifles <span>XP 2500</span></div><div class="challenge">Win 3 Matches <span>XP 2500</span></div><div class="challenge">Get 5 Headshots <span>XP 2500</span></div></div><div class="panel"><h3>NEWS</h3><img class="news-img" id="newsImg" alt=""><div class="news-title" id="newsTitle">SEASON 1 RELOADED</div><div class="news-sub" id="newsSub">New Maps, Modes, and More</div><div class="news-dots"><span class="active"></span><span></span><span></span><span></span></div></div></div><div class="footer">PLAY SELECTED • LOADOUT OPENS ARMORY • FLOP OPS BUILD 8.3</div></section>
+<section id="pageScreen" class="screen hidden"><img class="bg-img" id="pageBgImg" alt=""><div class="page-bg"></div><div class="vignette"></div><div class="scan"></div><div class="page-top"><button id="backBtn" class="back-btn">‹ BACK</button><div class="page-label" id="pageLabel">PLAY</div><div class="page-player">PLAYER: <b>DOUG</b> <span class="rank">55</span></div></div><div class="page-content"><div class="page-left" id="pageLeft"></div><div class="page-right" id="pageRight"></div></div></section>
+<section id="armoryScreen" class="screen hidden"><img id="armoryBg" class="bg-img" alt=""><div class="vignette"></div><div class="scan"></div><div class="armory-top"><button class="back-btn" id="armoryBack">‹ BACK</button><div class="armory-title"><div class="small">ASSAULT RIFLE</div><div class="big">MCW</div></div><div class="armory-player">PLAYER: <b>DOUG</b> <span class="rank">55</span></div></div><div class="weapon-name"><div class="type">ASSAULT RIFLE / MCW</div><h1>MCW</h1><div class="level">LEVEL 8 / 28</div></div><div class="model-wrap"><canvas id="modelCanvas"></canvas></div><div class="loading-model" id="modelLoading">LOADING 3D MODEL...</div><button class="hotspot hs-muzzle" data-slot="muzzle"></button><button class="hotspot hs-barrel" data-slot="barrel"></button><button class="hotspot hs-sight active" data-slot="sight"></button><button class="hotspot hs-underbarrel" data-slot="underbarrel"></button><button class="hotspot hs-ammo" data-slot="ammo"></button><button class="hotspot hs-laser" data-slot="laser"></button><button class="hotspot hs-stock" data-slot="stock"></button><div class="stats"><h3>MODIFICATIONS 5 / 5</h3><div class="stat"><div>DAMAGE</div><div class="bar"><span id="damageBar" style="width:68%"></span></div><div id="damageVal">68</div></div><div class="stat"><div>FIRE RATE</div><div class="bar"><span id="fireBar" style="width:77%"></span></div><div id="fireVal">77</div></div><div class="stat"><div>ACCURACY</div><div class="bar"><span id="accuracyBar" style="width:72%"></span></div><div id="accuracyVal">72</div></div><div class="stat"><div>RECOIL</div><div class="bar"><span id="recoilBar" style="width:55%"></span></div><div id="recoilVal">55</div></div><div class="stat"><div>MOBILITY</div><div class="bar"><span id="mobilityBar" style="width:61%"></span></div><div id="mobilityVal">61</div></div><div class="stat"><div>HANDLING</div><div class="bar"><span id="handlingBar" style="width:64%"></span></div><div id="handlingVal">64</div></div></div><div class="install-flash" id="installFlash"></div><div class="toast" id="toast">ATTACHMENT EQUIPPED</div><div class="bottom-tray"><div class="tray-header"><div class="label">ATTACHMENT SLOT</div><h2 id="trayTitle">SIGHT</h2></div><div class="equipped">SELECTED SLOT<br><b id="equippedText">SIGHT</b></div><div class="tray-grid" id="trayGrid"></div></div></section>
+
+<section id="gameHost" class="hidden">
+  <iframe id="gameFrame" title="Flop Ops Quick Play"></iframe>
+  <button id="gameBack" type="button">‹ MENU</button>
+</section>
+
+
+<section id="mpLobbyScreen" class="screen hidden">
+  <img class="bg-img" id="mpLobbyBg" alt="">
+  <div class="mp-lobby-shade"></div>
+  <div class="scan"></div>
+
+  <div class="mp-lobby-top">
+    <button id="mpLobbyBack" class="back-btn">‹ BACK</button>
+    <div class="mp-lobby-title">
+      <div class="mp-kicker">PRIVATE MATCH</div>
+      <div class="mp-big">MULTIPLAYER LOBBY</div>
+    </div>
+    <div class="mp-lobby-profile">PLAYER: <b>DOUG</b> <span class="rank">55</span></div>
+  </div>
+
+  <div class="mp-left-panel">
+    <h3>LOBBY CONTROL</h3>
+    <label>ROOM CODE</label>
+    <input id="mpLobbyRoomInput" value="cade-room" autocomplete="off">
+    <div class="mp-lobby-buttons">
+      <button id="mpLobbyHostBtn">HOST</button>
+      <button id="mpLobbyJoinBtn">JOIN</button>
+    </div>
+    <button id="mpLobbyQuickPlayBtn" class="mp-deploy">START MATCH</button>
+    <div class="mp-tip">Host creates the room. Join uses the same room code. When deployed, PeerJS starts inside the game.</div>
+    <div id="mpLobbyStatus">OFFLINE</div>
+  </div>
+
+  <div class="mp-mode-card">
+    <div class="mp-mode-img"></div>
+    <div class="mp-mode-name">NUKETOWN BLOCKADE</div>
+    <div class="mp-mode-sub">Doug squad deploys in formation. Enemy mannequin gets cooked later.</div>
+  </div>
+
+  <div class="mp-squad-label">
+    <div class="mp-squad-small">SQUAD</div>
+    <div class="mp-squad-big">DOUG FIRETEAM</div>
+  </div>
+
+  <div id="mpDougStage" class="mp-doug-stage">
+    <div class="mp-doug-card host occupied"><canvas id="mpDougCanvas0"></canvas><span>YOU / <b class="player-name-short">DOUG</b></span></div>
+    <div class="mp-doug-card slot1"><canvas id="mpDougCanvas1"></canvas><span>PLAYER 2</span></div>
+    <div class="mp-doug-card slot2"><canvas id="mpDougCanvas2"></canvas><span>PLAYER 3</span></div>
+    <div class="mp-doug-card slot3"><canvas id="mpDougCanvas3"></canvas><span>PLAYER 4</span></div>
+  </div>
+</section>
+
+<button id="fullscreenBtn" class="fullscreen-btn">⛶</button>
+<script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js"></script>
+<script src="js/menu.js"></script>
+</body>
+</html>
